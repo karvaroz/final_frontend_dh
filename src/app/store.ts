@@ -1,0 +1,12 @@
+import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import citaReducer from '../features/quote/redux/citaSlice';
+
+export const store = configureStore({
+  reducer: {
+    cita: citaReducer,
+  },
+});
+
+export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, RootState, unknown, Action<string>>;
